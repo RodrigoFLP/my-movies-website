@@ -7,7 +7,8 @@ import popularMovies from "../mock/popularMovies.json";
 export const HomePage = () => {
   return (
     <Layout>
-      <div className={styles.container}>
+      <h2>Popular</h2>
+      <section className={styles.container}>
         {popularMovies.results.map((movie) => (
           <MovieCard
             poster={movie.poster_path}
@@ -18,7 +19,7 @@ export const HomePage = () => {
             key={movie.id}
           />
         ))}
-      </div>
+      </section>
     </Layout>
   );
 };

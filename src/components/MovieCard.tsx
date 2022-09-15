@@ -4,6 +4,7 @@ import { Star } from "tabler-icons-react";
 
 import styles from "../styles/MovieCard.module.css";
 import { toLocalDate } from "../utils/toLocalDate";
+import { useNearScreen } from "../hooks/useNearScreen";
 
 export const MovieCard: FC<MovieCardProps> = ({
   title,
@@ -12,13 +13,17 @@ export const MovieCard: FC<MovieCardProps> = ({
   overview,
   voteAverage,
 }) => {
+  const { elementRef, visible } = useNearScreen();
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={elementRef}>
       <div className={styles["poster-container"]}>
-        <img
-          className={styles.poster}
-          src={`https://image.tmdb.org/t/p/w500${poster}`}
-        />
+        {visible && (
+          <img
+            className={styles.poster}
+            src={`https://image.tmdb.org/t/p/w500${poster}`}
+          />
+        )}
       </div>
       <section className={styles.details}>
         <div className={styles.header}>
