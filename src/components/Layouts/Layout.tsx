@@ -1,15 +1,16 @@
 import Navbar from "../Navbar";
 import styles from "../../styles/Layout.module.css";
-import { FC, ReactNode } from "react";
+import { FC, ReactElement, ReactNode } from "react";
 
 interface LayoutProps {
   children: ReactNode;
+  centerElement: ReactElement;
 }
 
-export const Layout: FC<LayoutProps> = ({ children }) => {
+export const Layout: FC<LayoutProps> = ({ children, centerElement }) => {
   return (
     <div className={styles["layout-container"]}>
-      <Navbar />
+      <Navbar>{centerElement}</Navbar>
       <main>{children}</main>
     </div>
   );

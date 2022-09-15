@@ -48,6 +48,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .navbar {
+    gap: 0.5rem;
+  }
+
   .ul {
     animation: menu 0.5s ease-in-out;
     display: none;

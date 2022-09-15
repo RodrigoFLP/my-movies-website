@@ -3,16 +3,20 @@ import IconButton from "./Buttons/IconButton";
 import Search from "./Search";
 
 import { Logout, Heart, Menu } from "tabler-icons-react";
-import { useState } from "react";
+import { FC, ReactNode, useState } from "react";
 
-export const Navbar = () => {
+interface NavbarProps {
+  children: ReactNode;
+}
+
+export const Navbar: FC<NavbarProps> = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
     <>
       <nav className={styles.navbar}>
         <img src="/logo.svg" />
-        <Search />
+        {children}
         <ul className={`${styles.ul} ${showMenu && styles["ul-visible"]}`}>
           <li data-testid="favorites">
             <IconButton>

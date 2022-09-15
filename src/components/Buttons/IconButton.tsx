@@ -4,12 +4,17 @@ import styles from "../../styles/IconButton.module.css";
 
 interface IconButtonProps {
   children: ReactNode;
+  className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const IconButton: FC<IconButtonProps> = ({ children, onClick }) => {
+export const IconButton: FC<IconButtonProps> = ({
+  children,
+  onClick,
+  className,
+}) => {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button className={`${styles.button} ${className}`} onClick={onClick}>
       {children}
     </button>
   );
