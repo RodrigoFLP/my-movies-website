@@ -9,4 +9,4 @@ export const LoginPage = () => {
   );
 };
 
-export default LoginCard;
+export default LoginPage;

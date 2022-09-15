@@ -5,6 +5,7 @@ import styles from "../styles/LoginCard.module.css";
 import logo from "/logo.svg";
 import { LoginInput } from "../interfaces/login";
 import validationLogin from "../utils/schemas/validationLogin";
+import { Button } from "./Buttons/Button";
 
 export const LoginCard = () => {
   const {
@@ -49,8 +50,7 @@ export const LoginCard = () => {
           placeholder="Email"
           data-testid="pwd-input"
         />
-
-        <button className={styles.button}>Login</button>
+        <Button />
       </form>
     </div>
   );

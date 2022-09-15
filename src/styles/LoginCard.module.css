@@ -73,23 +73,6 @@
     line-height: 50%;
 }
 
-.button {
-    background-color: #201568;
-    border: none;
-    border-radius: 0.5rem;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    transition: all 0.2s ease-in-out;
-}
-
-.button:hover {
-    background-color: #3f66ff;
-}
-
 
 @media screen and (max-width: 768px) {
     /* .card {

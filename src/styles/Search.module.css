@@ -1,0 +1,23 @@
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    right: 0;
+    gap: 0.5rem;
+    /* background-color: red; */
+}
+
+.input {
+    width: 100%;
+    border-radius: 3rem;
+    font-size: 0.90rem;
+    padding: 0 2rem;
+    /* padding: 0.75rem; */
+    height: 2.5rem;
+    border: none;
+}
+
+.input:focus {
+    outline: none;
+}
