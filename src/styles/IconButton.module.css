@@ -9,9 +9,8 @@
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 600;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0.8rem;
+    width: 3rem;
+    height: 3rem;
     transition: all 0.2s ease-in-out;
 }
 

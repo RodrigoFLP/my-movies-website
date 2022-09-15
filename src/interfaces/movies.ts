@@ -1,11 +1,11 @@
 export interface PopularMovies {
   page: number;
-  results: Result[];
+  results: MovieResult[];
   total_pages: number;
   total_results: number;
 }
 
-export interface Result {
+export interface MovieResult {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -20,4 +20,12 @@ export interface Result {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+export interface MovieCardProps {
+  title: string;
+  poster: string;
+  releaseDate: string;
+  overview: string;
+  voteAverage: number;
 }

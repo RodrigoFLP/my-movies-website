@@ -14,8 +14,12 @@
     font-size: 0.90rem;
     padding: 0 2rem;
     /* padding: 0.75rem; */
-    height: 2.5rem;
+    height: 3rem;
     border: none;
+}
+
+.container button {
+    flex:none;
 }
 
 .input:focus {

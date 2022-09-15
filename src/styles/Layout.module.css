@@ -1,6 +1,8 @@
 .layout-container {
     margin: 0 auto;
     max-width: 1200px;
+    padding-bottom: 4rem;
+
 }
 
 @media screen and (max-width: 1280px) {
