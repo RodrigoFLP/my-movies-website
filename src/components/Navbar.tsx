@@ -19,7 +19,7 @@ export const Navbar = () => {
         </div>
         <Search />
         <ul className={`${styles.ul} ${showMenu && styles["ul-visible"]}`}>
-          <li data-testid="favorites">
+          <li data-testid="favorites" onClick={() => navigate("/favorites")}>
             <IconButton>
               <Heart size={16} />
             </IconButton>

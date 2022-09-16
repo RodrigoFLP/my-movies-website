@@ -7,6 +7,8 @@ import { Star } from "tabler-icons-react";
 
 import styles from "../../styles/MovieDetails.module.css";
 import Image from "../Image";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { add, remove, selectMovies } from "../../store/slices/favoritesSlice";
 
 export const MovieDetails: FC<MovieDetail> = (details) => {
   const {
@@ -23,6 +25,12 @@ export const MovieDetails: FC<MovieDetail> = (details) => {
     overview,
   } = details;
 
+  const dispatch = useAppDispatch();
+
+  const favorites = useAppSelector(selectMovies);
+
+  const isFavorite = favorites.find((movie) => movie.id === details.id);
+
   return (
     <div className={styles.container}>
       <div className={styles["image-container"]}>
@@ -36,7 +44,15 @@ export const MovieDetails: FC<MovieDetail> = (details) => {
         <>
           <div className={styles.header}>
             <h2>{title}</h2>
-            <Button size="sm">Add to favorites</Button>
+            {!isFavorite ? (
+              <Button onClick={() => dispatch(add(details))} size="sm">
+                Add to favorites
+              </Button>
+            ) : (
+              <Button onClick={() => dispatch(remove(details.id))} size="sm">
+                Remove from favorites
+              </Button>
+            )}
           </div>
           <h5>
             {status === "Released"

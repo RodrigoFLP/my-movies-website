@@ -7,6 +7,7 @@ import { store } from "./store/store";
 import ProtectedRoute from "./ProtectedRoute";
 import Layout from "./components/Layouts/Layout";
 import DetailsPage from "./pages/DetailsPage";
+import FavoritesPage from "./pages/FavoritesPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="" element={<Layout />}>
               <Route index element={<HomePage />} />
               <Route path="/details/:id" element={<DetailsPage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
             </Route>
           </Route>
         </Routes>
