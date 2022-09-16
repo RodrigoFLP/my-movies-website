@@ -22,7 +22,11 @@ const Search: FC<SearchProps> = ({ onSearch }) => {
       setShowFixedSearch(false);
     }
     if (elementRef.current && elementRef.current.value.length > 0) {
-      navigate(`/search?query=${elementRef.current.value}`);
+      const queryString = new URLSearchParams({
+        query: elementRef.current.value,
+      }).toString();
+
+      navigate(`/search?${queryString}`);
     }
   };
 

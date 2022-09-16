@@ -37,20 +37,21 @@ export const SearchPage = () => {
     isSuccess,
     isUninitialized,
     data: movies,
-  } = useSearchQuery({ query, page });
+  } = useSearchQuery({ query, page: page || undefined });
 
   if (isLoading || isFetching || isUninitialized) return <Loading />;
 
-  if (isError) return <div>error</div>;
+  if (isError || movies.total_results === 0)
+    return <h3>No movies matched your query</h3>;
 
-  const getFrom = () => {
+  const fromNumber = () => {
     if (movies.total_pages === movies.page) {
       return movies.total_results - movies.results.length + 1;
     }
     return (movies.page - 1) * movies.results.length + 1;
   };
 
-  const getTo = () => {
+  const toNumber = () => {
     if (movies.total_pages === movies.page) {
       return movies.total_results;
     }
@@ -63,7 +64,7 @@ export const SearchPage = () => {
         <div className={styles["header-results"]}>
           <h3>Results for &quot;{query}&quot;</h3>
           <h4>
-            {getFrom()} - {getTo()} of {movies.total_results}
+            {fromNumber()} - {toNumber()} of {movies.total_results}
           </h4>
         </div>
         <div className={styles.pagination}>
@@ -72,7 +73,7 @@ export const SearchPage = () => {
           </IconButton>
           <IconButton
             onClick={nextPage}
-            disabled={+page === movies.total_pages}
+            disabled={page ? +page === movies.total_pages : false}
           >
             <ArrowRight />
           </IconButton>

@@ -20,10 +20,12 @@ export default (args: ViteConfigInput) => {
       globals: true,
       environment: "jsdom",
       setupFiles: "./src/test/setup.ts",
-      // you might want to disable it, if you don't have tests that rely on CSS
-      // since parsing CSS is slow
+      deps: {
+        inline: ["vitest-canvas-mock"],
+      },
       css: true,
     },
+
     css: {
       modules: {
         localsConvention: "camelCase",
