@@ -1,0 +1,22 @@
+.full {
+  transition: opacity 400ms ease 0ms;
+}
+.thumb {
+  position: absolute;
+  filter: blur(20px);
+  transform: scale(1.1);
+  transition: visibility 0ms ease 400ms;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.thumb-animation {
+  animation: opacity 0.5s ease-in-out forwards;
+}

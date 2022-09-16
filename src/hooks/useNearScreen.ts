@@ -15,7 +15,6 @@ export const useNearScreen = ({ persistent = false } = {}) => {
         observer: IntersectionObserver
       ) => {
         const el = entries[0];
-        console.log(el.isIntersecting);
         if (persistent) {
           setVisible(el.isIntersecting);
           observer.disconnect();

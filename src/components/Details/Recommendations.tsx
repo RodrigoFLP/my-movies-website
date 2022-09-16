@@ -3,6 +3,7 @@ import { Recommendations as RecomProps } from "../../interfaces/recommendations"
 import MovieCard from "../MovieCard";
 
 import styles from "../../styles/MovieDetails.module.css";
+import { useRecommendationsQuery } from "../../store/services/movies";
 
 export const Recommendations: FC<RecomProps> = ({
   results,
@@ -16,6 +17,7 @@ export const Recommendations: FC<RecomProps> = ({
       <div className={styles["recommendations-container"]}>
         {results.map((movie) => (
           <MovieCard
+            key={movie.id}
             size="sm"
             id={movie.id}
             poster={movie.poster_path}
@@ -23,7 +25,6 @@ export const Recommendations: FC<RecomProps> = ({
             overview={movie.overview}
             releaseDate={movie.release_date}
             voteAverage={movie.vote_average}
-            key={movie.id}
           />
         ))}
       </div>

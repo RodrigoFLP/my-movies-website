@@ -6,6 +6,7 @@ import styles from "../styles/MovieCard.module.css";
 import { toLocalDate } from "../utils/toLocalDate";
 import { useNearScreen } from "../hooks/useNearScreen";
 import { Navigate, useNavigate } from "react-router-dom";
+import Image from "./Image";
 
 interface UIProp {
   size?: "sm" | "md";
@@ -32,9 +33,10 @@ export const MovieCard: FC<MovieCardProps & UIProp> = ({
     >
       <div className={styles["poster-container"]}>
         {visible && (
-          <img
+          <Image
             className={styles.poster}
             src={`https://image.tmdb.org/t/p/w500${poster}`}
+            thumb={`https://image.tmdb.org/t/p/w92${poster}`}
           />
         )}
       </div>

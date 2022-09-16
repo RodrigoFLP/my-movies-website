@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Credits } from "../../interfaces/credits";
 import { MovieDetail } from "../../interfaces/movieDetail";
 import { PopularMovies } from "../../interfaces/popularMovies";
+import { Recommendations } from "../../interfaces/recommendations";
 
 export const movies = createApi({
   reducerPath: "movies",
@@ -34,7 +35,7 @@ export const movies = createApi({
         method: "GET",
       }),
     }),
-    recommendations: builder.query<Credits, number>({
+    recommendations: builder.query<Recommendations, number>({
       query: (id) => ({
         url: `movie/${id}/recommendations`,
         method: "GET",
