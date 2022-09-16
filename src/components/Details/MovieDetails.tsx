@@ -1,10 +1,11 @@
 import { FC } from "react";
 
-import styles from "../../styles/MovieDetails.module.css";
 import { MovieDetail } from "../../interfaces/movieDetail";
 import { Button } from "../Buttons/Button";
 import { toLocalDate } from "../../utils/toLocalDate";
 import { Star } from "tabler-icons-react";
+
+import styles from "../../styles/MovieDetails.module.css";
 
 export const MovieDetails: FC<MovieDetail> = ({
   title,
@@ -21,10 +22,12 @@ export const MovieDetails: FC<MovieDetail> = ({
 }) => {
   return (
     <div className={styles.container}>
-      <img
-        className={styles["image"]}
-        src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
-      ></img>
+      <div className={styles["image-container"]}>
+        <img
+          className={styles["image"]}
+          src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
+        ></img>
+      </div>
       <div className={styles["details-container"]}>
         <div className={styles.header}>
           <h2>{title}</h2>

@@ -3,7 +3,7 @@ import IconButton from "./Buttons/IconButton";
 import Search from "./Search";
 
 import { Logout, Heart, Menu } from "tabler-icons-react";
-import { FC, ReactNode, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
@@ -14,7 +14,9 @@ export const Navbar = () => {
   return (
     <>
       <nav className={styles.navbar}>
-        <img onClick={() => navigate("/")} src="/logo.svg" />
+        <div className={styles["logo-container"]} onClick={() => navigate("/")}>
+          <img src="/logo.svg" />
+        </div>
         <Search />
         <ul className={`${styles.ul} ${showMenu && styles["ul-visible"]}`}>
           <li data-testid="favorites">

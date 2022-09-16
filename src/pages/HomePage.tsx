@@ -2,8 +2,17 @@ import MovieCard from "../components/MovieCard";
 import styles from "../styles/MoviesContainer.module.css";
 
 import popularMovies from "../mock/popularMovies.json";
+import {
+  useCreditsQuery,
+  useDetailsQuery,
+  usePopularMoviesQuery,
+  useRecommendationsQuery,
+} from "../store/services/movies";
 
 export const HomePage = () => {
+  const { isLoading, isSuccess, isUninitialized, isError, isFetching, data } =
+    usePopularMoviesQuery();
+
   return (
     <>
       <h2>Popular</h2>

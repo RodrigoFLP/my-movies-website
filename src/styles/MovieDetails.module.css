@@ -14,11 +14,17 @@
   align-items: stretch;
 }
 
-.image {
+.image-container {
   aspect-ratio: 0.7;
-  width: 25%;
   border-radius: 1rem;
   align-self: flex-start;
+  overflow: hidden;
+  width: 25%;
+  flex: none;
+}
+
+.image {
+  width: 100%;
   object-fit: cover;
 }
 
@@ -270,11 +276,12 @@
     align-items: flex-start;
   }
 
-  .image {
+  .image-container {
     aspect-ratio: 1;
     width: 100%;
     border-radius: 1rem;
   }
+
   .container {
     flex-direction: column;
   }
