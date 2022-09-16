@@ -73,7 +73,7 @@ export const Login = () => {
           placeholder="Email"
           data-testid="pwd-input"
         />
-        <Button />
+        <Button>Login</Button>
       </form>
     </div>
   );

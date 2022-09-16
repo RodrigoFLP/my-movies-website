@@ -1,17 +1,15 @@
 import Navbar from "../Navbar";
 import styles from "../../styles/Layout.module.css";
 import { FC, ReactElement, ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 
-interface LayoutProps {
-  children: ReactNode;
-  centerElement: ReactElement;
-}
-
-export const Layout: FC<LayoutProps> = ({ children, centerElement }) => {
+export const Layout = () => {
   return (
     <div className={styles["layout-container"]}>
-      <Navbar>{centerElement}</Navbar>
-      <main>{children}</main>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

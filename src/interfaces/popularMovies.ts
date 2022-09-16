@@ -23,6 +23,7 @@ export interface MovieResult {
 }
 
 export interface MovieCardProps {
+  id: number;
   title: string;
   poster: string;
   releaseDate: string;

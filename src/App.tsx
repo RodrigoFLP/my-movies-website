@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import ProtectedRoute from "./ProtectedRoute";
+import Layout from "./components/Layouts/Layout";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   return (
@@ -13,7 +15,10 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route element={<ProtectedRoute />}>
-            <Route path="" element={<HomePage />} />
+            <Route path="" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="/details/:id" element={<DetailsPage />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

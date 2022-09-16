@@ -1,17 +1,16 @@
-import Layout from "../components/Layouts/Layout";
 import MovieCard from "../components/MovieCard";
 import styles from "../styles/MoviesContainer.module.css";
 
 import popularMovies from "../mock/popularMovies.json";
-import Search from "../components/Search";
 
 export const HomePage = () => {
   return (
-    <Layout centerElement={<Search />}>
+    <>
       <h2>Popular</h2>
       <section className={styles.container}>
         {popularMovies.results.map((movie) => (
           <MovieCard
+            id={movie.id}
             poster={movie.poster_path}
             title={movie.title}
             overview={movie.overview}
@@ -21,7 +20,7 @@ export const HomePage = () => {
           />
         ))}
       </section>
-    </Layout>
+    </>
   );
 };
 

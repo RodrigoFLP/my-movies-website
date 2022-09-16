@@ -1,81 +1,80 @@
-
 .card {
-    background-color: #fff;
-    /* margin: 10px; */
-    border-radius: 1rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 300px;
-    padding: 2rem;
-    /* width: 100%; */
-    position: relative;
+  background-color: #fff;
+  /* margin: 10px; */
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 300px;
+  padding: 2rem;
+  /* width: 100%; */
+  position: relative;
 }
 
 .logo {
-   
-    align-self: flex-start;
-    height: 1rem;
-    left:0;
+  align-self: flex-start;
+  height: 1rem;
+  left: 0;
 }
 
 .card::after {
-    content: "";
-    background-color: #f1f1f1;
-    border-radius: 1rem;
-    position: absolute;
-    left: 5%;
-    top:0;
-    z-index: -1;
-    top: 25%;
-    width: 90%;
-    height: 80%;
-    padding: 0;
+  content: "";
+  background-color: #f1f1f1;
+  border-radius: 1rem;
+  position: absolute;
+  left: 5%;
+  top: 0;
+  z-index: -1;
+  top: 25%;
+  width: 90%;
+  height: 80%;
+  padding: 0;
 }
 
-
 .form {
-    display: flex;
-    flex-direction: column;
-    /* gap: 0.2rem; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.2rem; */
+}
+
+.form button {
+  margin-top: 1rem;
 }
 
 .input {
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
 }
 
 .input:focus {
-    border: 1px solid #3f66ff;
-    outline: none;
+  border: 1px solid #3f66ff;
+  outline: none;
 }
 
 .label-container {
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .label {
-    font-weight: 600;
-    margin-top: 0.5rem;
-    margin-bottom: 0.2rem;
-    font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
 }
 
 .error {
-    font-size: 0.8rem;
-    color: red;
-    line-height: 50%;
+  font-size: 0.8rem;
+  color: red;
+  line-height: 50%;
 }
 
-
 @media screen and (max-width: 768px) {
-    /* .card {
+  /* .card {
         top: -2rem;
         max-width: 100%;
         box-shadow: none;
@@ -88,10 +87,8 @@
         width: 100%;
     } */
 
-    
-/* 
+  /* 
     .card::after {
         display: none;
     } */
-
 }

@@ -4,19 +4,18 @@ import Search from "./Search";
 
 import { Logout, Heart, Menu } from "tabler-icons-react";
 import { FC, ReactNode, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface NavbarProps {
-  children: ReactNode;
-}
-
-export const Navbar: FC<NavbarProps> = ({ children }) => {
+export const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <>
       <nav className={styles.navbar}>
-        <img src="/logo.svg" />
-        {children}
+        <img onClick={() => navigate("/")} src="/logo.svg" />
+        <Search />
         <ul className={`${styles.ul} ${showMenu && styles["ul-visible"]}`}>
           <li data-testid="favorites">
             <IconButton>

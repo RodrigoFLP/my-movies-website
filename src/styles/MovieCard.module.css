@@ -98,7 +98,6 @@
   );
 }
 
-
 .overview {
   padding: 0;
   margin: 0.25rem 0;
@@ -115,4 +114,17 @@
   -webkit-line-clamp: 3; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+/* size variations */
+.container-sm {
+  aspect-ratio: 1;
+}
+
+.overview-sm {
+  -webkit-line-clamp: 2;
+}
+
+.overview-container-sm {
+  padding-top: 2rem;
 }
