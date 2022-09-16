@@ -168,6 +168,12 @@
   padding-bottom: 1rem;
 }
 
+.section h2 {
+  /* padding: 0; */
+  padding-top: 1rem;
+  /* margin: 0.5rem 0 0.25rem 0; */
+}
+
 .actor {
   font-size: 0.9rem;
   display: flex;
@@ -175,6 +181,8 @@
   flex-direction: column;
   width: 7rem;
   flex: none;
+  overflow: hidden;
+  position: relative;
 }
 
 .actor h4 {
@@ -183,11 +191,11 @@
   padding: 0;
   margin: 0.5rem 0 0.25rem 0;
   white-space: nowrap;
+
+  width: 6rem;
+  overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1; /* number of lines to show */
-  line-clamp: 1;
-  -webkit-box-orient: vertical;
+  color: #2e2e2e;
 }
 .actor h5 {
   text-align: center;
@@ -195,8 +203,11 @@
   padding: 0;
   line-height: 0.6rem;
   white-space: nowrap;
+  width: 6rem;
+  overflow: hidden;
   text-overflow: ellipsis;
   color: #2e2e2e;
+  /* background-color: rgba(1, 1, 1, 0.5); */
 }
 
 .actor-image-container {
@@ -207,12 +218,17 @@
   width: 100%;
   height: auto;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .actor-image {
   width: 101%;
   object-fit: cover;
   height: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .actors-container::-webkit-scrollbar {

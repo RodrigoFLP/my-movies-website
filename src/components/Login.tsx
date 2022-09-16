@@ -13,12 +13,14 @@ import { LoginInput } from "../interfaces/login";
 import { login } from "../store/slices/authSlice";
 import { useLoginMutation } from "../store/services/auth";
 import { useAppDispatch } from "../store/hooks";
+import Loading from "./Loading";
 
 export const Login = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    setError,
   } = useForm<LoginInput>({ resolver: yupResolver(validationLogin) });
 
   const navigate = useNavigate();
@@ -39,7 +41,9 @@ export const Login = () => {
     try {
       const { token } = await loginMutation(data).unwrap();
       dispatch(login({ token }));
-    } catch {}
+    } catch {
+      setError("email", { message: "Incorrect user" });
+    }
   };
 
   return (
@@ -47,33 +51,39 @@ export const Login = () => {
       <img className={styles.logo} data-testid="logo" src={logo} />
       <h2>Log In</h2>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles["label-container"]}>
-          <label className={styles.label} htmlFor="email">
-            Email
-          </label>
-          <span className={styles.error}>{errors.email?.message}</span>
-        </div>
-        <input
-          {...register("email")}
-          id="email"
-          className={styles.input}
-          placeholder="Email"
-          data-testid="email-input"
-        />
-        <div className={styles["label-container"]}>
-          <label className={styles.label} htmlFor="email">
-            Password
-          </label>
-          <span className={styles.error}>{errors.password?.message}</span>
-        </div>
-        <input
-          {...register("password")}
-          type="password"
-          className={styles.input}
-          placeholder="Email"
-          data-testid="pwd-input"
-        />
-        <Button>Login</Button>
+        {!data.isLoading ? (
+          <>
+            <div className={styles["label-container"]}>
+              <label className={styles.label} htmlFor="email">
+                Email
+              </label>
+              <span className={styles.error}>{errors.email?.message}</span>
+            </div>
+            <input
+              {...register("email")}
+              id="email"
+              className={styles.input}
+              placeholder="Email"
+              data-testid="email-input"
+            />
+            <div className={styles["label-container"]}>
+              <label className={styles.label} htmlFor="email">
+                Password
+              </label>
+              <span className={styles.error}>{errors.password?.message}</span>
+            </div>
+            <input
+              {...register("password")}
+              type="password"
+              className={styles.input}
+              placeholder="Email"
+              data-testid="pwd-input"
+            />
+            <Button>Login</Button>
+          </>
+        ) : (
+          <Loading height="auto" />
+        )}
       </form>
     </div>
   );

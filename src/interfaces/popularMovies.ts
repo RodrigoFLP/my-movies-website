@@ -7,14 +7,14 @@ export interface PopularMovies {
 
 export interface MovieResult {
   adult: boolean;
-  backdrop_path: string;
+  backdrop_path: null | string;
   genre_ids: number[];
   id: number;
   original_language: string;
   original_title: string;
   overview: string;
   popularity: number;
-  poster_path: string;
+  poster_path: null | string;
   release_date: string;
   title: string;
   video: boolean;
@@ -25,7 +25,7 @@ export interface MovieResult {
 export interface MovieCardProps {
   id: number;
   title: string;
-  poster: string;
+  poster: null | string;
   releaseDate: string;
   overview: string;
   voteAverage: number;

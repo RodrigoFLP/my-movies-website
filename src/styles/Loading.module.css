@@ -6,3 +6,11 @@
   display: flex;
   justify-content: center;
 }
+
+.full {
+}
+
+.auto {
+  height: 100%;
+  /* background-color: red; */
+}

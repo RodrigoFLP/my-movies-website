@@ -3,6 +3,7 @@ import { Credits } from "../../interfaces/credits";
 import { MovieDetail } from "../../interfaces/movieDetail";
 import { PopularMovies } from "../../interfaces/popularMovies";
 import { Recommendations } from "../../interfaces/recommendations";
+import { SearchQuery, SearchResult } from "../../interfaces/search";
 
 export const movies = createApi({
   reducerPath: "movies",
@@ -41,6 +42,14 @@ export const movies = createApi({
         method: "GET",
       }),
     }),
+    search: builder.query<SearchResult, SearchQuery>({
+      query: ({ query, page }) => ({
+        url: page
+          ? `search/movie?query=${query}&page=${page}`
+          : `search/movie?query=${query}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -49,4 +58,5 @@ export const {
   useDetailsQuery,
   useCreditsQuery,
   useRecommendationsQuery,
+  useSearchQuery,
 } = movies;

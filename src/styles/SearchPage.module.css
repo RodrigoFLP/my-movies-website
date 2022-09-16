@@ -1,0 +1,31 @@
+.header-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* background-color: red; */
+}
+
+.header h4 {
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.header h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+}

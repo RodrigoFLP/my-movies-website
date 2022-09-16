@@ -22,6 +22,12 @@ body {
   min-height: 100vh;
 }
 
+h2 {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1.5rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: black;

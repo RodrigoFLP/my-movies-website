@@ -8,6 +8,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Layout from "./components/Layouts/Layout";
 import DetailsPage from "./pages/DetailsPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route index element={<HomePage />} />
               <Route path="/details/:id" element={<DetailsPage />} />
               <Route path="/favorites" element={<FavoritesPage />} />
+              <Route path="/search" element={<SearchPage />} />
             </Route>
           </Route>
         </Routes>
