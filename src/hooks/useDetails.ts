@@ -11,7 +11,6 @@ import { Recommendations } from "../interfaces/recommendations";
 const useDetails = (id: string) => {
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
-    console.log("once");
   }, [id]);
 
   const {

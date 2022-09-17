@@ -27,7 +27,6 @@ export const loadToken = createAsyncThunk("auth/getToken", async () => {
 
 //clear token from localStorage
 export const clearToken = createAsyncThunk("auth/clearToken", async () => {
-  console.log("token");
   localStorage.removeItem("token");
 });
 
