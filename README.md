@@ -11,6 +11,13 @@ Login with the following email and password:
 }
 ```
 
+## Technologies
+- Typescript
+- Redux Toolkit and RTK Query
+- React Testing Library
+- React Router
+- CSS Modules
+
 ## Instructions to run it locally
 
 1. Clone the repository and cd to the root of the project
@@ -23,7 +30,13 @@ npm install
 ```bash
 VITE_MOVIEDB_TOKEN=
 ```
-4. Run the development server:
+### Run the development server:
 ```bash
 npm run dev
+```
+
+### Run build locally
+```bash
+npm run build
+npm run preview
 ```
