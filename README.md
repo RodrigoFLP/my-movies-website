@@ -1,5 +1,15 @@
 # My movies website
 
+Deployed at
+https://my-movies-website.vercel.app/
+
+Login with the following email and password:
+```bash
+{
+ "email": "eve.holt@reqres.in",
+ "password": "cityslicka"
+}
+```
 
 ## Instructions to run it locally
 
