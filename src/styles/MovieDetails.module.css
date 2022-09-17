@@ -15,7 +15,7 @@
 }
 
 .image-container {
-  background-color: #e2e2e2;
+  /* background-color: #e2e2e2; */
   position: relative;
   aspect-ratio: 0.7;
   border-radius: 1rem;
@@ -213,7 +213,7 @@
 .actor-image-container {
   position: relative;
   border-radius: 1rem;
-  background-color: #e2e2e2;
+  /* background-color: #e2e2e2; */
   aspect-ratio: 1;
   width: 100%;
   height: auto;
@@ -328,7 +328,7 @@
   }
 
   .actors-container {
-    padding-bottom: 0;
+    padding-bottom: 1rem;
   }
 }
 

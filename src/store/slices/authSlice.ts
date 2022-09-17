@@ -27,6 +27,7 @@ export const loadToken = createAsyncThunk("auth/getToken", async () => {
 
 //clear token from localStorage
 export const clearToken = createAsyncThunk("auth/clearToken", async () => {
+  console.log("token");
   localStorage.removeItem("token");
 });
 
@@ -58,6 +59,12 @@ export const authSlice = createSlice({
       .addCase(loadToken.rejected, (state) => {
         state.isLoading = false;
         state.isLoggedIn = false;
+      })
+      .addCase(clearToken.fulfilled, (state) => {
+        state.token = undefined;
+        state.isLoading = false;
+        state.isLoggedIn = false;
+        state.isIdle = false;
       });
   },
 });

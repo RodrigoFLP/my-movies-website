@@ -25,7 +25,9 @@ export default (args: ViteConfigInput) => {
       },
       css: true,
     },
-
+    build: {
+      chunkSizeWarningLimit: 800,
+    },
     css: {
       modules: {
         localsConvention: "camelCase",

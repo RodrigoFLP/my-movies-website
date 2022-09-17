@@ -1,12 +1,14 @@
 import { FC } from "react";
 import { MovieCardProps } from "../interfaces/popularMovies";
-import { Star } from "tabler-icons-react";
+import { Movie } from "tabler-icons-react";
 
 import styles from "../styles/MovieCard.module.css";
 import { toLocalDate } from "../utils/toLocalDate";
 import { useNearScreen } from "../hooks/useNearScreen";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Image from "./Image";
+import { RatingChip } from "./RatingChip";
+import Placeholder from "./Placeholder";
 
 interface UIProp {
   size?: "sm" | "md";
@@ -32,7 +34,7 @@ export const MovieCard: FC<MovieCardProps & UIProp> = ({
       onClick={() => navigate(`/details/${id}`)}
     >
       <div className={styles["poster-container"]}>
-        {visible && (
+        {visible && poster && (
           <Image
             className={styles.poster}
             src={`https://image.tmdb.org/t/p/w500${poster}`}
@@ -40,12 +42,12 @@ export const MovieCard: FC<MovieCardProps & UIProp> = ({
           />
         )}
       </div>
+      <Placeholder>
+        <Movie size={80} strokeWidth={1} />
+      </Placeholder>
       <section className={styles.details}>
         <div className={styles.header}>
-          <h4 className={styles.rating}>
-            <Star size={10} fill={"black"} />
-            {voteAverage}/10
-          </h4>
+          <RatingChip vote_average={voteAverage} />
         </div>
         <div
           className={`${styles["overview-container"]} ${

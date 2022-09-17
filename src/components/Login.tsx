@@ -76,7 +76,7 @@ export const Login = () => {
               {...register("password")}
               type="password"
               className={styles.input}
-              placeholder="Email"
+              placeholder="Password"
               data-testid="pwd-input"
             />
             <Button>Login</Button>

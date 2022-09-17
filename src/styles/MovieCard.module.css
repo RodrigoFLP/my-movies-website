@@ -30,7 +30,7 @@
   justify-content: end;
 }
 
-.rating {
+/* .rating {
   font-size: 0.65rem;
   display: flex;
   justify-content: center;
@@ -42,7 +42,7 @@
   margin: 0;
   width: auto;
   flex: none;
-}
+} */
 
 .poster-container {
   position: absolute;

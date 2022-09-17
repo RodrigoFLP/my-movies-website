@@ -18,9 +18,9 @@ export const movies = createApi({
     },
   }),
   endpoints: (builder) => ({
-    popularMovies: builder.query<PopularMovies, void>({
-      query: () => ({
-        url: "movie/popular",
+    popularMovies: builder.query<PopularMovies, string | null>({
+      query: (page) => ({
+        url: !page ? "movie/popular" : `movie/popular?page=${page}`,
         method: "GET",
       }),
     }),

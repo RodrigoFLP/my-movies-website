@@ -1,62 +1,49 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "tabler-icons-react";
-import IconButton from "../components/Buttons/IconButton";
-import Loading from "../components/Loading";
-import MovieCard from "../components/MovieCard";
+
+import { Pagination, MovieCard, Loading } from "../components";
+
 import { useSearchQuery } from "../store/services/movies";
 
-import moviesContainer from "../styles/MoviesContainer.module.css";
+import { getPaginationRange } from "../utils/pagination";
 
 import styles from "../styles/SearchPage.module.css";
+import moviesContainer from "../styles/MoviesContainer.module.css";
 
 export const SearchPage = () => {
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("query") as string;
   const page = searchParams.get("page");
+  const query = searchParams.get("query") as string;
 
   const navigate = useNavigate();
-
-  const nextPage = () => {
-    navigate(
-      `/search?query=${query}&page=${
-        page ? (+page !== movies?.total_pages ? +page + 1 : +page) : 2
-      }`
-    );
-  };
-
-  const previousPage = () => {
-    navigate(
-      `/search?query=${query}&page=${page && +page > 1 ? +page - 1 : 1}`
-    );
-  };
 
   const {
     isLoading,
     isFetching,
     isError,
-    isSuccess,
     isUninitialized,
     data: movies,
   } = useSearchQuery({ query, page: page || undefined });
 
-  if (isLoading || isFetching || isUninitialized) return <Loading />;
+  const nextPage = () => {
+    const newPage = page
+      ? +page !== movies?.total_pages
+        ? +page + 1
+        : +page
+      : 2;
+    navigate(`/search?query=${query}&page=${newPage}`);
+  };
+
+  const previousPage = () => {
+    const newPage = page && +page > 1 ? +page - 1 : 1;
+    navigate(`/search?query=${query}&page=${newPage}`);
+  };
+
+  if (isLoading || isUninitialized) return <Loading />;
 
   if (isError || movies.total_results === 0)
-    return <h3>No movies matched your query</h3>;
+    return <p>No movies matched your query</p>;
 
-  const fromNumber = () => {
-    if (movies.total_pages === movies.page) {
-      return movies.total_results - movies.results.length + 1;
-    }
-    return (movies.page - 1) * movies.results.length + 1;
-  };
-
-  const toNumber = () => {
-    if (movies.total_pages === movies.page) {
-      return movies.total_results;
-    }
-    return movies.results.length * movies.page;
-  };
+  const { start, end } = getPaginationRange(movies);
 
   return (
     <>
@@ -64,34 +51,33 @@ export const SearchPage = () => {
         <div className={styles["header-results"]}>
           <h3>Results for &quot;{query}&quot;</h3>
           <h4>
-            {fromNumber()} - {toNumber()} of {movies.total_results}
+            {start} - {end} of {movies.total_results}
           </h4>
         </div>
-        <div className={styles.pagination}>
-          <IconButton onClick={previousPage} disabled={!page || +page === 1}>
-            <ArrowLeft />
-          </IconButton>
-          <IconButton
-            onClick={nextPage}
-            disabled={page ? +page === movies.total_pages : false}
-          >
-            <ArrowRight />
-          </IconButton>
-        </div>
+        <Pagination
+          currentPage={page}
+          total={movies.total_pages}
+          onPrevious={previousPage}
+          onNext={nextPage}
+        />
       </div>
-      <section className={moviesContainer.container}>
-        {movies.results.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            id={movie.id}
-            poster={movie.poster_path}
-            title={movie.title}
-            overview={movie.overview}
-            releaseDate={movie.release_date}
-            voteAverage={movie.vote_average}
-          />
-        ))}
-      </section>
+      {isFetching ? (
+        <Loading />
+      ) : (
+        <section className={moviesContainer.container}>
+          {movies.results.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster_path}
+              title={movie.title}
+              overview={movie.overview}
+              releaseDate={movie.release_date}
+              voteAverage={movie.vote_average}
+            />
+          ))}
+        </section>
+      )}
     </>
   );
 };

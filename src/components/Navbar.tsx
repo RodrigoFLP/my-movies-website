@@ -1,19 +1,32 @@
 import styles from "../styles/Navbar.module.css";
 import IconButton from "./Buttons/IconButton";
-import Search from "./Search/Search";
 
 import { Logout, Heart, Menu } from "tabler-icons-react";
 import { FC, ReactElement, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../store/hooks";
+import { clearToken } from "../store/slices/authSlice";
 
 interface NavbarProps {
   centerContent: ReactElement;
 }
 
 export const Navbar: FC<NavbarProps> = ({ centerContent }) => {
+  const dispatch = useAppDispatch();
+
   const [showMenu, setShowMenu] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleFavoritesClick = () => {
+    navigate("/favorites");
+    setShowMenu(false);
+  };
+
+  const handleLogout = () => {
+    dispatch(clearToken());
+    navigate("/", { replace: true });
+  };
 
   return (
     <>
@@ -23,13 +36,13 @@ export const Navbar: FC<NavbarProps> = ({ centerContent }) => {
         </div>
         {centerContent}
         <ul className={`${styles.ul} ${showMenu && styles["ul-visible"]}`}>
-          <li data-testid="favorites" onClick={() => navigate("/favorites")}>
+          <li data-testid="favorites" onClick={handleFavoritesClick}>
             <IconButton>
               <Heart size={16} />
             </IconButton>
             <span>Favorites</span>
           </li>
-          <li data-testid="logout">
+          <li data-testid="logout" onClick={handleLogout}>
             <IconButton>
               <Logout size={16} />
             </IconButton>

@@ -1,4 +1,4 @@
-import { Login } from "../components/Login";
+import { Login } from "../components";
 import styles from "../styles/LoginPage.module.css";
 
 import { Navigate } from "react-router-dom";

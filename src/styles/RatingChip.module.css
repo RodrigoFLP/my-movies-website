@@ -1,0 +1,19 @@
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: white;
+  padding: 0 0.5rem;
+  border-radius: 1rem;
+  margin: 0;
+  width: auto;
+  flex: none;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.md {
+  font-size: 0.8rem;
+  padding: 0;
+}

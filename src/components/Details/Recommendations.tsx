@@ -3,7 +3,6 @@ import { Recommendations as RecomProps } from "../../interfaces/recommendations"
 import MovieCard from "../MovieCard";
 
 import styles from "../../styles/MovieDetails.module.css";
-import { useRecommendationsQuery } from "../../store/services/movies";
 
 export const Recommendations: FC<RecomProps> = ({
   results,
@@ -11,6 +10,8 @@ export const Recommendations: FC<RecomProps> = ({
   total_pages,
   total_results,
 }) => {
+  if (results.length === 0) return null;
+
   return (
     <section className={styles.section}>
       <h2>Recommendations</h2>

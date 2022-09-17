@@ -1,10 +1,8 @@
-import { Recommendations } from "../components/Details/Recommendations";
-import { Actors } from "../components/Details/Actors";
-import { MovieDetails } from "../components/Details/MovieDetails";
-
 import styles from "../styles/MovieDetails.module.css";
 
-import Loading from "../components/Loading";
+import { Recommendations, Actors, MovieDetails } from "../components/Details";
+import { Loading, Error } from "../components";
+
 import useDetails from "../hooks/useDetails";
 import { useParams } from "react-router-dom";
 
@@ -15,7 +13,7 @@ export const DetailsPage = () => {
     useDetails(id as string);
 
   if (isLoading) return <Loading />;
-  if (isError) return <div>error</div>;
+  if (isError) return <Error />;
 
   return (
     <div className={styles.main}>

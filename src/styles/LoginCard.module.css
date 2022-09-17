@@ -17,6 +17,7 @@
   align-self: flex-start;
   height: 1rem;
   left: 0;
+  margin-bottom: 0.75rem;
 }
 
 .card::after {

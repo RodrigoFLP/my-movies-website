@@ -5,6 +5,7 @@ import {
   selectIsLoggedIn,
 } from "./store/slices/authSlice";
 import { useAppSelector } from "./store/hooks";
+import Loading from "./components/Loading";
 
 const ProtectedRoute = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -12,7 +13,7 @@ const ProtectedRoute = () => {
   const isLoading = useAppSelector(selectIsLoading);
 
   if (isIdle || isLoading) {
-    return <div>loading</div>;
+    return <Loading height="full" />;
   }
 
   if (!isLoggedIn) {

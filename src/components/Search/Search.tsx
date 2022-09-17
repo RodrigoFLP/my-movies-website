@@ -2,14 +2,10 @@ import styles from "../../styles/Search.module.css";
 import IconButton from "../Buttons/IconButton";
 
 import { Search as SearchIcon } from "tabler-icons-react";
-import { FormEvent, useEffect, useState, useRef, FC } from "react";
+import { FormEvent, useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface SearchProps {
-  onSearch?: (query: string) => void;
-}
-
-const Search: FC<SearchProps> = ({ onSearch }) => {
+const Search = () => {
   const [showFixedSearch, setShowFixedSearch] = useState(false);
 
   const navigate = useNavigate();
